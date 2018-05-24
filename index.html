@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title> Php Cheat Sheet</title>
+    <link rel="stylesheet" href="css/prism.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css" />
+
+</head>
+<body>
+
+
+    <div class= "container">
+        <div class="row py-3">
+        <h1 class="">Php Cheat Sheet</h1>
+        </div>
+        <div>
+            <hr/>
+        </div>
+
+
+        <div class="row">
+            <h2 class="py-3">
+                The Basics
+            </h2>
+        </div>
+
+
+        <div class="row pt-3">
+            <p class="lead">Echoing</p>
+        </div>
+        <div class="row py-2">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    echo "&lt;p&gt;Hello World&lt;/p&gt;"
+    print "Hello world!";
+?&gt;
+            </code></pre>
+        </div>
+        <div class="row">
+            <p><code>echo(strings)</code><p>
+        </div>
+        <div class="row">
+            <p>
+                Echo will write to the DOM, print can also be used as the same but Echo runs faster.
+            </p>
+        </div>
+
+         <div class="row pt-5">
+            <p class="lead">Variables</p>
+         </div>
+         <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;HTML&gt;
+&lt;Body&gt;
+    &lt;form action="save.php" methoid="POST"&gt;
+    &lt;label&gt;FirstName&lt;label&gt;
+    &lt;input type="text" name="fistName"/&gt;
+    &ltlabel;&gt;LastName&lt;/label&gt;
+    &lt;input type="text" name="lastName"/&gt;
+
+    &lt;button type="submit"&gt;Save&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/Body&gt;
+&lt;/HTML&gt;
+    ...
+    ...
+
+&lt;!--save.php--&gt;
+&lt;?php
+   $FirstName = $_POST['firstName'];
+   $LastName = $_POST['lastName'];
+
+   echo $FirstName;
+?&gt;
+        </code></pre>
+        </div>
+        <div class="row">
+            <p>
+                Variables are met with an &amp before its name every time.
+            </p>
+        </div>
+
+        <div class="row pt-5">
+            <p class="lead">Constants and Concatenation</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    define('PI', 3.1415926)
+
+   echo "Pi is " . PI;
+?&gt;
+        </code></pre>
+        </div>
+        <div class="row">
+        <code> define(NAME, VALUE)</code>
+        </div>
+        <div class="row">
+            <p>
+                To make a constant you use the deine function.
+                Concatenation is preformed with the '.' like shown above.
+            </p>
+        </div>
+
+        
+
+    </div>
+    <script src="js/prism.js"></script>
+
+
+</body>
+</html>
