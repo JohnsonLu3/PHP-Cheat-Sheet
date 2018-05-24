@@ -1,3 +1,52 @@
 pre{
     width: 100%;
 }
+
+#main{
+    background-color: white;
+}
+
+#sideNav{
+    background-color: #996881;
+    width: 120%;
+}
+
+.sideAccent{
+    z-index: 1;
+    height: 1%;
+    width: 120%;
+    background-color: #ffb6c0;
+}
+
+.sideAccent2{
+    z-index: 0;
+    height: 1%;
+    width: 120%;
+    position: fixed;
+    background-color: #f7f2d1;    
+}
+
+.sideNav-container{
+    position: fixed; 
+    width: 120%;
+}
+
+.nav-item p,a{
+    line-height: 2.5em;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item p,a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-item:nth-child(odd) {
+    background-color: #ba7e9c;
+}
+.nav-item:nth-child(even) {
+    background-color: #9e6984;
+}
