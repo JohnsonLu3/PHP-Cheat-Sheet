@@ -8,22 +8,22 @@
 </head>
 <body>
 
+
 <div class="row">
+    <div class="row sideAccent"> </div>
     <div class="col-2" id="sideNav">
-        <div class="sideAccent"></div>
-        <div class="sideAccent2"></div>
-        <div class="sideNav-Container">
-            <div class="row pl-5 nav-item">
-                <p class="lead"><a href="#Top">Top</a></p>
-            </div>
-            <div class="row pl-5 nav-item">
-                <p class="lead"><a href="#TheBasics">The Basics</a></p>
-            </div>
-            <div class="row pl-5 nav-item">
-                <p class="lead"><a href="#DataTypes">DataTypes</a></p>
-            </div>
-            <div class="row pl-5 nav-item">
-                <p class="lead"><a href="#Functions">Functions</a></p>
+        <div class="col-12">
+            <div class="row sideNav-Container">
+                <div class="row nav-item">
+                    <h3 class="p-3">Directory</h3>
+                    <ul>
+                        <li><a href="#Top">Top</a></li>
+                        <li><a href="#TheBasics">The Basics</a></li>
+                        <li><a href="#DataTypes">Data Types/Structures</a></li>
+                        <li><a href="#Functions">Functions</a></li>
+                        <li><a href="#SQL">SQL</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -64,6 +64,8 @@
                 Echo will write to the DOM, print can also be used as the same but Echo runs faster.
             </p>
         </div>
+
+
 
          <div class="row pt-5">
             <p class="lead">Variables</p>
@@ -142,12 +144,192 @@
             </p>
         </div>    
 
-
+        <hr />
         <div class="row" id="DataTypes">
-            <h2 class="py-5">
-                Data Types
+            <h2 class="py-3">
+                Data Types/Structures
             </h2>
         </div>
+
+
+        <div class="row pt-5">
+            <p class="lead">Stings</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    echo strlen("Hello world!"); 
+
+    echo str_word_count("Hello world!");
+    
+    echo strrev("Hello world!");
+
+    echo str_replace("world", "Dolly", "Hello world!");
+?&gt;
+        </code></pre>
+        </div>
+
+
+
+        <div class="row pt-5">
+            <p class="lead">Arrays</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    $numbers = array(1,2,3,4,5,6,7);
+
+    $numbers[7] = 8;
+
+    for($i = 0; $i < sizeof($numbers); $i++){
+        echo $numbers[i];
+    }
+
+    foreach($numbers as $num){
+        echo $num;
+    }
+
+    sort($numbers)      // sort arrays in ascending order
+    rsort($numbers)     // sort arrays in descending order
+    asort($numbers)     // sort associative arrays in ascending order, according to the value
+    ksort($numbers)     // sort associative arrays in ascending order, according to the key
+    arsort($numbers)    // sort associative arrays in descending order, according to the value
+    krsort($numbers)    // sort associative arrays in descending order, according to the key
+
+?&gt;
+        </code></pre>
+        </div>
+        <div class="row">
+        <code> array(value1, value2, ...)</code>
+        </div>
+        <div class="row">
+            <p>
+                To make an array you must call the array function. These arrays are not type safe.
+            </p>
+        </div>    
+
+
+        <div class="row pt-5">
+            <p class="lead">Maps</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    $customer = array('1289571' => 'John', '1869372' => 'Kim', '1635527' => "David");
+
+    foreach($customer as $key => $value){
+        echo 'ID: ' . $key . ' | ' . $value;
+    }
+?&gt;
+        </code></pre>
+        </div>
+        <div class="row">
+        <code> array(key1 => value1, key2 => value2, ...)</code>
+        </div>
+        <div class="row">
+            <p>
+                Creating a map is just an array with key, value pairs. The key, values are seperated by the '=>' operator.
+            </p>
+        </div>    
+
+        <hr />
+        <div class="row" id="Functions">
+            <h2 class="py-3">
+                Functions
+            </h2>
+        </div>
+
+
+        <div class="row pt-5">
+            <p class="lead">Function declaration</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    function echoNames($names) {
+        foreach($names as $name){
+            echo $name;
+        }
+    }
+?&gt;
+        </code></pre>
+        </div>
+
+        <hr />
+        <div class="row" id="SQL">
+            <h2 class="py-3">
+                Php with SQL
+            </h2>
+        </div>
+
+
+        <div class="row pt-5">
+            <p class="lead">Connecting</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    $servername = "localhost";
+    $username = "username";
+    $password = "password";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    echo "Connected successfully";
+
+    // Close the connection
+    $conn->close();
+?&gt;
+        </code></pre>
+        </div>
+        <div class="row">
+            <p>
+                To establish a connection you'll need the database's name, username, and password. Then create the a connection object using that info. You can check if the connection was successful by checking connect_error found in the connection object.
+            </p>
+        </div>    
+
+
+
+        <div class="row pt-5">
+            <p class="lead">Submitting Queries</p>
+        </div>
+        <div class="row">
+            <pre><code class="language-php line-numbers">
+&lt;?php
+    $sql = "SELECT id, firstname, lastname FROM customers";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+?&gt;
+        </code></pre>
+        </div>
+        <div class="row">
+            <p>
+                First define your query statment and the call query on your connection object. This will return a set of results.
+            </p>
+        </div>    
+
+
+
+</div>
+
+
+
+
+    <br class="py-5"/>
+    <br class="py-5"/>
     </div>
     </div>
 </div>
